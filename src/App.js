@@ -1,0 +1,43 @@
+import { useState } from "react";
+
+function Square() {
+
+
+    const [value, setValue] = useState(null);
+
+    function handleClick() {
+        setValue('X')
+    }
+
+    return (
+        <button
+            className="square"
+            title="test"
+            onClick={handleClick}
+        >
+            {value}
+        </button>
+    )
+}
+
+export default function Board() {
+    return (
+        <>
+            <div className="board-row">
+                <Square value="1"></Square>
+                <Square value="1"></Square>
+                <Square value="1"></Square>
+            </div>
+            <div className="board-row">
+                <Square value="1"></Square>
+                <Square value="1"></Square>
+                <Square value="1"></Square>
+            </div>
+            <div className="board-row">
+                <Square value="1"></Square>
+                <Square value="1"></Square>
+                <Square value="1"></Square>
+            </div>
+        </>
+    )
+}
