@@ -1,5 +1,6 @@
 {
-  "name": "react_learn",
+  "name": "blog_fe",
+  "description": "blog be",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,7 +9,9 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
     "gh-pages": "^6.1.1",
+    "http-proxy-middleware": "^2.0.6",
     "react": "^18.2.0",
+    "react-cookie": "^7.0.2",
     "react-dom": "^18.2.0",
     "react-quill": "^2.0.0",
     "react-router-dom": "^6.22.1",
@@ -17,7 +20,7 @@
     "vite": "^5.1.3",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://m9zjl.github.io/learn_react",
+  "homepage": "https://m9zjl.github.io/react_learn/#",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

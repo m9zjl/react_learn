@@ -6,7 +6,7 @@ function Footer() {
     <footer className="footer">
       <img src={footer_icon} alt="footer icon" />
       <span>
-        Made with ❤️‍🔥 and <b>React.js</b>
+        Made with <span role="img">❤️‍🔥</span> and <b>React.js</b>
       </span>
     </footer>
   );

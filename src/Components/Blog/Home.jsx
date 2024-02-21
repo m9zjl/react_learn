@@ -1,16 +1,7 @@
-import axios from "axios";
-import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import React from "react";
 
 const Home = () => {
-  //   const [data, setData] = React.useState([]);
-
-  //   useEffect(() => {
-  //     axios("https://jsonplaceholder.typicode.com/posts").then((response) => {
-  //       setData(response);
-  //     });
-  //   }, []);
-
   const posts = [
     {
       userId: 1,

@@ -1,14 +1,15 @@
-import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import './App.css';
-import Register from './Components/Blog/Register';
-import Login from './Components/Blog/Login';
-import Home from './Components/Blog/Home';
-import Single from './Components/Blog/Single';
-import Write from './Components/Blog/Write';
-import Navbar from './Components/Blog/components/Navbar';
-import Footer from './Components/Blog/components/Footer';
-import './style.scss'
-
+import { Outlet, RouterProvider, createHashRouter } from "react-router-dom";
+import "./App.css";
+import Register from "./Components/Blog/Register";
+import Login from "./Components/Blog/Login";
+import Home from "./Components/Blog/Home";
+import Single from "./Components/Blog/Single";
+import Write from "./Components/Blog/Write";
+import Navbar from "./Components/Blog/components/Navbar";
+import Footer from "./Components/Blog/components/Footer";
+import React from "react";
+import "./global.scss";
+import axios from "axios";
 
 const Layout = () => {
   return (
@@ -17,10 +18,10 @@ const Layout = () => {
       <Outlet />
       <Footer />
     </>
-  )
-}
+  );
+};
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Layout />,
@@ -31,36 +32,37 @@ const router = createBrowserRouter([
       },
       {
         path: "/single",
-        element: <Single />
-      }, {
+        element: <Single />,
+      },
+      {
         path: "/write",
-        element: <Write />
-      }, {
+        element: <Write />,
+      },
+      {
         path: "/post/:id",
-        element: <Single />
-      }
-    ]
-  }, {
+        element: <Single />,
+      },
+    ],
+  },
+  {
     path: "/register",
-    element: <Register />
+    element: <Register />,
   },
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
   },
-
-])
-
+]);
 
 function App() {
+  axios.defaults.baseURL = "http://localhost:8080";
   return (
-    <div className='app'>
-      <div className='container'>
+    <div className="app">
+      <div className="container">
         <RouterProvider router={router} />
       </div>
     </div>
   );
 }
 
-
-export default App
+export default App;
