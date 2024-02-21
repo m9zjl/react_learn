@@ -43,5 +43,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "repository": "https://github.com/m9zjl/react_learn.git"
 }
