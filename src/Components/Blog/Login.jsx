@@ -30,7 +30,7 @@ const Login = () => {
           setErr(ret.data.error);
         }
       } catch (err) {
-        setErr(err?.response?.data);
+        setErr(err?.response?.data?.error);
       }
     }
   };

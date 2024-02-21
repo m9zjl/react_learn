@@ -56,6 +56,7 @@ const router = createHashRouter([
 
 function App() {
   axios.defaults.baseURL = "http://localhost:8080";
+  axios.defaults.withCredentials=true
   return (
     <div className="app">
       <div className="container">
