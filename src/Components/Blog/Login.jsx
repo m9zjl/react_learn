@@ -1,6 +1,7 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "./context/authContent";
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -12,6 +13,8 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  const { login } = useContext(AuthContext);
+
   const onChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
@@ -22,13 +25,8 @@ const Login = () => {
       setErr("Please fill all the fields");
     } else {
       try {
-        const ret = await axios.post("/login", inputs);
-        if (ret?.data?.token) {
-          console.log("token:", ret.data.token);
-          navigate("/");
-        } else {
-          setErr(ret.data.error);
-        }
+        await login(inputs);
+        navigate("/");
       } catch (err) {
         setErr(err?.response?.data?.error);
       }

@@ -31,10 +31,6 @@ const router = createHashRouter([
         element: <Home />,
       },
       {
-        path: "/single",
-        element: <Single />,
-      },
-      {
         path: "/write",
         element: <Write />,
       },
