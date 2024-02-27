@@ -250,6 +250,10 @@ $lightGreen: #b9e7e7;
                 color: black;
               }
             }
+            .markdownContent{
+              max-height: 400px;
+              overflow: hidden;
+            }
           }
         }
       }

@@ -1,6 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import rehypeHighlight from "rehype-highlight";
+import Markdown from "react-markdown";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -11,8 +13,8 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const ret = await axios.post(`/articles${category}`, {
-          pageSize:10,
-          pageNum:1
+          pageSize: 10,
+          pageNum: 1,
         });
         if (ret?.data?.articles) {
           setPosts(ret?.data?.articles);
@@ -26,13 +28,13 @@ const Home = () => {
       }
     };
     fetchData();
-  }, [category]);
+  }, []);
 
   return (
     <div className="home">
       <div className="posts">
         {posts
-          .filter((post) => post.id <= 10) // 过滤掉userId不等于当前用户的帖子
+          .filter((post) => post.id <= 10)
           .map((post) => (
             <div className="post" key={post.id}>
               <div className="img">
@@ -45,8 +47,14 @@ const Home = () => {
                 <Link to={`/post/${post.id}`}>
                   <h1>{post.title}</h1>
                 </Link>
-                <p>{post.desc}</p>
-                <button>Read More</button>
+                <div className="markdownContent">
+                  <Markdown rehypePlugins={[rehypeHighlight]}>
+                    {post.desc}
+                  </Markdown>
+                </div>
+                <Link to={`/post/${post.id}`}>
+                  <button>Read More</button>
+                </Link>
               </div>
             </div>
           ))}

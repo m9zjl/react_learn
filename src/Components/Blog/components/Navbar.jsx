@@ -16,9 +16,11 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="container">
-        <div className="logo">
-          <img src={cloud_icon} alt="logo" />
-        </div>
+        <Link className="link" to="/">
+          <div className="logo">
+            <img src={cloud_icon} alt="logo" />
+          </div>
+        </Link>
         <div className="links">
           {categories.map((category, index) => (
             <Link className="link" to={category.link} key={index}>
